@@ -8,3 +8,7 @@
   padding: 0.5rem;
   cursor: pointer;
 }
+
+.Button:hover {
+  background-color: rgba(250, 128, 114, 0.5);
+}

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Clicker from './components/Clicker/Clicker';
 import Upgrades from './containers/Upgrades/Upgrades';
@@ -11,37 +11,36 @@ class App extends Component {
     upgrades: [
       {
         name: 'Upgrade 1',
-        initialCost: 1.0,
-        cost: 1.0,
+        initialCost: 1,
+        cost: 1,
         count: 0,
+        cpsIncrease: 1,
       },
       {
         name: 'Upgrade 2',
-        initialCost: 2.0,
-        cost: 2.0,
+        initialCost: 2,
+        cost: 2,
         count: 0,
+        cpsIncrease: 1,
       },
       {
         name: 'Upgrade 3',
-        initialCost: 5.0,
-        cost: 5.0,
+        initialCost: 5,
+        cost: 5,
         count: 0,
+        cpsIncrease: 5,
       },
     ],
   };
 
   componentDidMount() {
     setInterval(() => {
-      this.setState((state) => {
-        return { currency: state.currency + state.currencyPerSecond };
-      });
+      this.setState((state) => ({ currency: state.currency + state.currencyPerSecond }));
     }, 1000);
   }
 
   clickHandler = () => {
-    this.setState((state) => {
-      return { currency: state.currency + 1 };
-    });
+    this.setState((state) => ({ currency: state.currency + 1 }));
   };
 
   clickedUpgradeHandler = (index) => {
@@ -58,7 +57,11 @@ class App extends Component {
           ),
         };
 
-        return { currency: state.currency - cost, upgrades: updatedUpgrades };
+        return {
+          currency: state.currency - cost,
+          currencyPerSecond: state.currencyPerSecond + updatedUpgrades[index].cpsIncrease,
+          upgrades: updatedUpgrades,
+        };
       }
     });
   };
