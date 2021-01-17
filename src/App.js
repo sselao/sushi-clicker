@@ -7,24 +7,24 @@ class App extends Component {
   // FIXME: Temporary leaving it in App
   state = {
     currency: 1,
-    currencyPerSecond: 10,
+    currencyPerSecond: 1000,
     upgrades: [
       {
         name: 'Upgrade 1',
-        initialCost: 1,
-        cost: 1,
+        initialCost: 1.0,
+        cost: 1.0,
         count: 0,
       },
       {
         name: 'Upgrade 2',
-        initialCost: 2,
-        cost: 2,
+        initialCost: 2.0,
+        cost: 2.0,
         count: 0,
       },
       {
         name: 'Upgrade 3',
-        initialCost: 5,
-        cost: 5,
+        initialCost: 5.0,
+        cost: 5.0,
         count: 0,
       },
     ],
@@ -52,7 +52,10 @@ class App extends Component {
         updatedUpgrades[index] = {
           ...updatedUpgrades[index],
           count: updatedUpgrades[index].count + 1,
-          cost: updatedUpgrades[index].cost + cost,
+          cost: Math.ceil(
+            updatedUpgrades[index].cost +
+              updatedUpgrades[index].initialCost * (1.07 ^ updatedUpgrades[index].count),
+          ),
         };
 
         return { currency: state.currency - cost, upgrades: updatedUpgrades };
