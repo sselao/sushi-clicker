@@ -1,0 +1,18 @@
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+.App > div {
+  flex: 1 1;
+}
+
+.App #leftSection {
+  text-align: center;
+}
+
+.App #rightSection {
+  background: #f3f3f3;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

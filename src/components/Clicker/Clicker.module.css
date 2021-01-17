@@ -1,0 +1,21 @@
+.Clicker {
+  height: 40vmin;
+  cursor: pointer;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  animation: clicker-spin infinite 20s linear;
+}
+
+@keyframes clicker-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ClickerNumberDisplay {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
