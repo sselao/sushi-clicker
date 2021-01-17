@@ -9,6 +9,7 @@ class UpgradesList extends Component {
         name={upgrade.name}
         cost={upgrade.cost}
         count={upgrade.count}
+        disabled={upgrade.disabled}
         clicked={() => this.props.upgraded(index)}
       />
     ));

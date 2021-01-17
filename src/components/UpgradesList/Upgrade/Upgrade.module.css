@@ -4,4 +4,16 @@
   align-items: center;
   padding: 2rem;
   border: 1px solid gray;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+.Upgrade.Disabled {
+  cursor: not-allowed;
+  background-color: rgb(197, 197, 197);
+}
+
+.Upgrade.Hidden {
+  display: none;
 }

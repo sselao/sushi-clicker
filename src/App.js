@@ -30,6 +30,14 @@ class App extends Component {
         count: 0,
         cpsIncrease: 5,
       },
+      {
+        name: 'Upgrade 4',
+        initialCost: 10,
+        cost: 10,
+        count: 0,
+        cpsIncrease: 10,
+        disabled: true,
+      },
     ],
   };
 

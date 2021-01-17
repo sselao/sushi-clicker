@@ -12,3 +12,7 @@
 .Button:hover {
   background-color: rgba(250, 128, 114, 0.5);
 }
+
+.Button:disabled {
+  cursor: not-allowed;
+}
