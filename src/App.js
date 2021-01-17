@@ -7,6 +7,7 @@ class App extends Component {
   // FIXME: Temporary leaving it in App
   state = {
     currency: 1,
+    currencyPerSecond: 10,
     upgrades: [
       {
         name: 'Upgrade 1',
@@ -28,6 +29,14 @@ class App extends Component {
       },
     ],
   };
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState((state) => {
+        return { currency: state.currency + state.currencyPerSecond };
+      });
+    }, 1000);
+  }
 
   clickHandler = () => {
     this.setState((state) => {
@@ -55,7 +64,11 @@ class App extends Component {
     return (
       <div className='App'>
         <div id='leftSection'>
-          <Clicker currency={this.state.currency} clicked={this.clickHandler} />
+          <Clicker
+            currency={this.state.currency}
+            currencyPerSecond={this.state.currencyPerSecond}
+            clicked={this.clickHandler}
+          />
         </div>
         <div id='rightSection'>
           <Upgrades upgrades={this.state.upgrades} upgraded={this.clickedUpgradeHandler} />
