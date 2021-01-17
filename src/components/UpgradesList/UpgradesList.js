@@ -7,8 +7,10 @@ class UpgradesList extends Component {
       <Upgrade
         key={index}
         name={upgrade.name}
+        type={upgrade.type}
         cost={upgrade.cost}
         count={upgrade.count}
+        increase={upgrade.increase}
         disabled={upgrade.disabled}
         clicked={() => this.props.upgraded(index)}
       />

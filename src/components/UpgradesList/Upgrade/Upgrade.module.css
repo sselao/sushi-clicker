@@ -1,8 +1,5 @@
 .Upgrade {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
+  padding: 1.25rem;
   border: 1px solid gray;
   border-radius: 6px;
   margin-bottom: 1rem;
@@ -16,4 +13,14 @@
 
 .Upgrade.Hidden {
   display: none;
+}
+
+.Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Description {
+  font-size: 0.75rem;
 }
