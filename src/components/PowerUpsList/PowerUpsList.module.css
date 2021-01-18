@@ -1,0 +1,8 @@
+.PowerUpsList {
+  margin: 1rem;
+}
+
+.List {
+  display: flex;
+  justify-content: space-between;
+}

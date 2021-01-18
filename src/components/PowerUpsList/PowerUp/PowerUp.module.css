@@ -1,0 +1,11 @@
+.PowerUp {
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 3px;
+  background-color: #f3f3f3;
+  cursor: pointer;
+}
+
+.Enabled {
+  background-color: rgb(115, 218, 115);
+}

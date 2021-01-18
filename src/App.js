@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clicker from './components/Clicker/Clicker';
+import PowerUpsList from './components/PowerUpsList/PowerUpsList';
 import Upgrades from './containers/Upgrades/Upgrades';
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
   state = {
     currency: 1,
     currencyPerClick: 1,
-    currencyPerSecond: 1000,
+    currencyPerSecond: 100,
     upgrades: [
       {
         name: 'Upgrade 1',
@@ -44,6 +45,36 @@ class App extends Component {
         disabled: true,
       },
     ],
+    powerUps: [
+      {
+        name: '10x Click',
+        type: 'click',
+        cost: 100,
+        multiplier: 10,
+        enabled: false,
+      },
+      {
+        name: '100x Click',
+        type: 'click',
+        cost: 100,
+        multiplier: 100,
+        enabled: false,
+      },
+      {
+        name: '10x CPS',
+        type: 'generator',
+        cost: 200,
+        multiplier: 10,
+        enabled: false,
+      },
+      {
+        name: '100x CPS',
+        type: 'generator',
+        cost: 300,
+        multiplier: 100,
+        enabled: false,
+      },
+    ],
   };
 
   componentDidMount() {
@@ -72,7 +103,7 @@ class App extends Component {
 
         const newState = {
           currency: state.currency - cost,
-          upgrades: updatedUpgrades
+          upgrades: updatedUpgrades,
         };
 
         if (updatedUpgrades[index].type === 'click') {
@@ -86,6 +117,35 @@ class App extends Component {
     });
   };
 
+  clickedPowerUpHandler = (index) => {
+    if (!this.state.powerUps[index].enabled) {
+      this.setState((state) => {
+        const cost = state.powerUps[index].cost;
+        if (state.currency >= cost) {
+          const updatedPowerUps = [...state.powerUps];
+          updatedPowerUps[index] = {
+            ...updatedPowerUps[index],
+            enabled: true,
+          };
+
+          const newState = {
+            currency: state.currency - cost,
+            powerUps: updatedPowerUps,
+          };
+
+          if (updatedPowerUps[index].type === 'click') {
+            newState.currencyPerClick = state.currencyPerClick * updatedPowerUps[index].multiplier;
+          } else if (updatedPowerUps[index].type === 'generator') {
+            newState.currencyPerSecond =
+              state.currencyPerSecond * updatedPowerUps[index].multiplier;
+          }
+
+          return newState;
+        }
+      });
+    }
+  };
+
   render() {
     return (
       <div className='App'>
@@ -96,6 +156,7 @@ class App extends Component {
             currencyPerSecond={this.state.currencyPerSecond}
             clicked={this.clickHandler}
           />
+          <PowerUpsList powerUps={this.state.powerUps} clicked={this.clickedPowerUpHandler} />
         </div>
         <div id='rightSection'>
           <Upgrades upgrades={this.state.upgrades} upgraded={this.clickedUpgradeHandler} />
