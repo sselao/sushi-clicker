@@ -78,6 +78,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    document.title = 'Sushi Clicker';
     setInterval(() => {
       this.setState((state) => ({ currency: state.currency + state.currencyPerSecond }));
     }, 1000);
