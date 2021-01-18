@@ -3,6 +3,7 @@
   cursor: pointer;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  user-select: none;
   animation: clicker-spin infinite 20s linear;
 }
 

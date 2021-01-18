@@ -4,8 +4,10 @@
   border-radius: 3px;
   background-color: #f3f3f3;
   cursor: pointer;
+  user-select: none;
 }
 
 .Enabled {
   background-color: rgb(115, 218, 115);
+  cursor: not-allowed;
 }
