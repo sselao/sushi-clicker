@@ -1,4 +1,5 @@
 import React from 'react';
+import Currency from '../../UI/Currency/Currency';
 import styles from './PowerUp.module.css';
 
 const PowerUp = (props) => {
@@ -9,8 +10,12 @@ const PowerUp = (props) => {
 
   return (
     <div className={className.join(' ')} onClick={props.clicked}>
-      <div><strong>{props.name}</strong></div>
-      <div>({props.cost} makis)</div>
+      <div>
+        <strong>{props.name}</strong>
+      </div>
+      <div>
+        (<Currency value={props.cost} />)
+      </div>
     </div>
   );
 };

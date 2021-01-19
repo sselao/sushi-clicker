@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../UI/Button/Button';
+import Currency from '../../UI/Currency/Currency';
 
 import styles from './Upgrade.module.css';
 
@@ -13,7 +14,9 @@ const Upgrade = (props) => {
     <div className={className.join(' ')}>
       <div className={styles.Container}>
         <div>{props.name}</div>
-        <div>Cost: {props.cost} makis</div>
+        <div>
+          Cost: <Currency value={props.cost} />
+        </div>
         <div>Have: {props.count}</div>
         <Button disabled={props.disabled} clicked={props.clicked}>
           Upgrade!
