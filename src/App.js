@@ -12,7 +12,7 @@ class App extends Component {
     currencyPerSecond: 100,
     upgrades: [
       {
-        name: 'Upgrade 1',
+        name: 'Cursor',
         type: 'click',
         initialCost: 1,
         cost: 1,
@@ -20,7 +20,7 @@ class App extends Component {
         increase: 1,
       },
       {
-        name: 'Upgrade 2',
+        name: 'Apprentice',
         type: 'generator',
         initialCost: 2,
         cost: 2,
@@ -28,7 +28,7 @@ class App extends Component {
         increase: 1,
       },
       {
-        name: 'Upgrade 3',
+        name: 'Itamae',
         type: 'generator',
         initialCost: 5,
         cost: 5,
@@ -36,7 +36,7 @@ class App extends Component {
         increase: 5,
       },
       {
-        name: 'Upgrade 4',
+        name: 'Fisherman',
         type: 'generator',
         initialCost: 10,
         cost: 10,
