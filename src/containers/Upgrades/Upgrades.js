@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import UpgradesList from '../../components/UpgradesList/UpgradesList';
 
-class Upgrades extends Component {
-  render() {
-    return (
-      <div>
-        <h1>List of Upgrades</h1>
-        <UpgradesList upgrades={this.props.upgrades} upgraded={this.props.upgraded} />
-      </div>
-    );
-  }
-}
+const Upgrades = (props) => (
+  <div>
+    <h1>List of Upgrades</h1>
+    <UpgradesList upgrades={props.upgrades} upgraded={props.upgraded} />
+  </div>
+);
 
 export default Upgrades;
