@@ -73,7 +73,7 @@ const powerUpsList = [
 ];
 
 const Layout = () => {
-  const [documentTitle] = useState('Sushi Clicker - REACT HOOKS');
+  const [documentTitle, setDocumentTitle] = useState('Sushi Clicker');
   const [currency, setCurrency] = useState(1);
   const [currencyPerClick, setCurrencyPerClick] = useState(1);
   const [currencyPerSecond, setCurrencyPerSecond] = useState(100);
@@ -83,6 +83,10 @@ const Layout = () => {
   useEffect(() => {
     document.title = documentTitle;
   }, [documentTitle]);
+
+  useInterval(() => {
+    setDocumentTitle(`${currency} Nigiris - Sushi Clicker`);
+  }, 5000);
 
   useInterval(() => {
     setCurrency(currency + currencyPerSecond);
