@@ -1,8 +1,8 @@
 import React from 'react';
 import Upgrade from './Upgrade/Upgrade';
 
-const UpgradesList = (props) =>
-  props.upgrades.map((upgrade, index) => (
+const UpgradesList = ({ upgrades, upgraded }) =>
+  upgrades.map((upgrade, index) => (
     <Upgrade
       key={index}
       name={upgrade.name}
@@ -11,7 +11,7 @@ const UpgradesList = (props) =>
       count={upgrade.count}
       increase={upgrade.increase}
       disabled={upgrade.disabled}
-      clicked={() => props.upgraded(index)}
+      clicked={() => upgraded(index)}
     />
   ));
 

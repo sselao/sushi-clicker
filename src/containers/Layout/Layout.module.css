@@ -1,17 +1,17 @@
-.App {
+.Layout {
   display: flex;
   height: 100vh;
 }
 
-.App > div {
+.Layout > div {
   flex: 1 1;
 }
 
-.App #leftSection {
+.Left {
   text-align: center;
 }
 
-.App #rightSection {
+.Right {
   background: #f3f3f3;
   padding-left: 1rem;
   padding-right: 1rem;
