@@ -94,7 +94,6 @@ const Layout = () => {
 
   const clickedUpgradeHandler = (index) => {
     const cost = upgrades[index].cost;
-
     if (currency >= cost) {
       const updatedUpgrades = [...upgrades];
       updatedUpgrades[index] = {
@@ -105,8 +104,8 @@ const Layout = () => {
             updatedUpgrades[index].initialCost * (1.07 ^ updatedUpgrades[index].count),
         ),
       };
-      setUpgrades(updatedUpgrades);
 
+      setUpgrades(updatedUpgrades);
       setCurrency(currency - cost);
 
       if (updatedUpgrades[index].type === 'click') {
