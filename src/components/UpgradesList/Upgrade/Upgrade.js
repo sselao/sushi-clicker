@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../UI/Button/Button';
 import Currency from '../../UI/Currency/Currency';
 
 import styles from './Upgrade.module.css';
@@ -11,16 +10,13 @@ const Upgrade = (props) => {
   }
 
   return (
-    <div className={className.join(' ')}>
+    <div className={className.join(' ')} onClick={props.clicked}>
       <div className={styles.Container}>
-        <div>{props.name}</div>
+        <div className={styles.Name}>{props.name}</div>
         <div>
           Cost: <Currency value={props.cost} decimals={0} />
         </div>
-        <div>Have: {props.count}</div>
-        <Button disabled={props.disabled} clicked={props.clicked}>
-          Upgrade!
-        </Button>
+        <div className={styles.Count}>{props.count > 0 && props.count}</div>
       </div>
       <p className={styles.Description}>
         Increase currency per {props.type === 'generator' ? 'second' : props.type} by{' '}

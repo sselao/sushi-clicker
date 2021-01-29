@@ -1,9 +1,15 @@
 .Upgrade {
   padding: 1.25rem;
-  border: 1px solid gray;
+  border: 1px solid rgb(190, 190, 190);
   border-radius: 6px;
   margin-bottom: 1rem;
   background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.Upgrade:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .Upgrade.Disabled {
@@ -21,6 +27,15 @@
   align-items: center;
 }
 
+.Name {
+  font-weight: bold;
+}
+
 .Description {
   font-size: 0.75rem;
+}
+
+.Count {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
