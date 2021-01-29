@@ -9,6 +9,7 @@ const upgradesList = [
   {
     name: 'Cursor',
     type: 'click',
+    minCurrency: 0,
     initialCost: 1,
     cost: 1,
     count: 0,
@@ -17,26 +18,30 @@ const upgradesList = [
   {
     name: 'Apprentice',
     type: 'generator',
-    initialCost: 2,
-    cost: 2,
+    minCurrency: 50,
+    initialCost: 50,
+    cost: 50,
     count: 0,
     increase: 1,
   },
   {
     name: 'Itamae',
     type: 'generator',
-    initialCost: 5,
-    cost: 5,
+    minCurrency: 1000,
+    initialCost: 1000,
+    cost: 1000,
     count: 0,
-    increase: 5,
+    increase: 8,
+    disabled: true,
   },
   {
     name: 'Fisherman',
     type: 'generator',
-    initialCost: 10,
-    cost: 10,
+    minCurrency: 12000,
+    initialCost: 12000,
+    cost: 12000,
     count: 0,
-    increase: 10,
+    increase: 47,
     disabled: true,
   },
 ];
@@ -76,7 +81,7 @@ const Layout = () => {
   const [documentTitle, setDocumentTitle] = useState('Sushi Clicker');
   const [currency, setCurrency] = useState(1);
   const [currencyPerClick, setCurrencyPerClick] = useState(1);
-  const [currencyPerSecond, setCurrencyPerSecond] = useState(100);
+  const [currencyPerSecond, setCurrencyPerSecond] = useState(0);
   const [upgrades, setUpgrades] = useState(upgradesList);
   const [powerUps, setPowerUps] = useState(powerUpsList);
 
@@ -90,6 +95,17 @@ const Layout = () => {
 
   useInterval(() => {
     setCurrency(currency + currencyPerSecond);
+
+    const updatedUpgrades = [...upgrades];
+    upgrades.forEach((upgrade, index) => {
+      if (upgrade.disabled && currency >= upgrade.minCurrency) {
+        updatedUpgrades[index] = {
+          ...updatedUpgrades[index],
+          disabled: false,
+        };
+        setUpgrades(updatedUpgrades);
+      }
+    });
   }, 1000);
 
   const clickedUpgradeHandler = (index) => {
