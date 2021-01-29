@@ -27,6 +27,10 @@
   align-items: center;
 }
 
+.Container > div {
+  flex: 1;
+}
+
 .Name {
   font-weight: bold;
 }
@@ -38,4 +42,5 @@
 .Count {
   font-size: 1.25rem;
   font-weight: bold;
+  text-align: right;
 }

@@ -13,9 +13,7 @@ const Upgrade = (props) => {
     <div className={className.join(' ')} onClick={props.clicked}>
       <div className={styles.Container}>
         <div className={styles.Name}>{props.name}</div>
-        <div>
-          Cost: <Currency value={props.cost} decimals={0} />
-        </div>
+        <div><Currency value={props.cost} decimals={0} /></div>
         <div className={styles.Count}>{props.count > 0 && props.count}</div>
       </div>
       <p className={styles.Description}>
