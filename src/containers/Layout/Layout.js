@@ -35,13 +35,33 @@ const upgradesList = [
     disabled: true,
   },
   {
-    name: 'Fisherman',
+    name: 'Restaurant',
     type: 'generator',
     minCurrency: 12000,
     initialCost: 12000,
     cost: 12000,
     count: 0,
     increase: 47,
+    disabled: true,
+  },
+  {
+    name: 'Fisherman',
+    type: 'generator',
+    minCurrency: 120000,
+    initialCost: 120000,
+    cost: 120000,
+    count: 0,
+    increase: 260,
+    disabled: true,
+  },
+  {
+    name: 'Fish Farm',
+    type: 'generator',
+    minCurrency: 1400000,
+    initialCost: 1400000,
+    cost: 1400000,
+    count: 0,
+    increase: 1400,
     disabled: true,
   },
 ];
@@ -90,7 +110,7 @@ const Layout = () => {
   }, [documentTitle]);
 
   useInterval(() => {
-    setDocumentTitle(`${currency} Nigiris - Sushi Clicker`);
+    setDocumentTitle(`${currency.toFixed(0)} Nigiris - Sushi Clicker`);
   }, 5000);
 
   useInterval(() => {
@@ -112,6 +132,8 @@ const Layout = () => {
     const cost = upgrades[index].cost;
     if (currency >= cost) {
       const updatedUpgrades = [...upgrades];
+      const increase = updatedUpgrades[index].increase;
+      
       updatedUpgrades[index] = {
         ...updatedUpgrades[index],
         count: updatedUpgrades[index].count + 1,
@@ -119,16 +141,17 @@ const Layout = () => {
           updatedUpgrades[index].cost +
             updatedUpgrades[index].initialCost * (1.07 ^ updatedUpgrades[index].count),
         ),
+        increase: increase * 1.01,
       };
+
+      if (updatedUpgrades[index].type === 'click') {
+        setCurrencyPerClick(currencyPerClick + increase);
+      } else if (updatedUpgrades[index].type === 'generator') {
+        setCurrencyPerSecond(currencyPerSecond + increase);
+      }
 
       setUpgrades(updatedUpgrades);
       setCurrency(currency - cost);
-
-      if (updatedUpgrades[index].type === 'click') {
-        setCurrencyPerClick(currencyPerClick + updatedUpgrades[index].increase);
-      } else if (updatedUpgrades[index].type === 'generator') {
-        setCurrencyPerSecond(currencyPerSecond + updatedUpgrades[index].increase);
-      }
     }
   };
 

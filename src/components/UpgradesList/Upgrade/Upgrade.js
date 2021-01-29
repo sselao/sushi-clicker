@@ -15,7 +15,7 @@ const Upgrade = (props) => {
       <div className={styles.Container}>
         <div>{props.name}</div>
         <div>
-          Cost: <Currency value={props.cost} />
+          Cost: <Currency value={props.cost} decimals={0} />
         </div>
         <div>Have: {props.count}</div>
         <Button disabled={props.disabled} clicked={props.clicked}>
@@ -24,7 +24,7 @@ const Upgrade = (props) => {
       </div>
       <p className={styles.Description}>
         Increase currency per {props.type === 'generator' ? 'second' : props.type} by{' '}
-        {props.increase}
+        {props.increase.toFixed(2)}
       </p>
     </div>
   );

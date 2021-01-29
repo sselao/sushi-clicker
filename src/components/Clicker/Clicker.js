@@ -8,7 +8,7 @@ const Clicker = (props) => (
   <>
     <img src={image} className={styles.Clicker} onClick={props.clicked} alt='clicker' />
     <div className={styles.ClickerNumberDisplay}>
-      <Currency value={props.currency} />
+      <Currency value={props.currency} decimals={0} />
     </div>
     <div>
       <Currency value={props.currencyPerClick} /> per click
