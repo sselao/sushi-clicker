@@ -104,6 +104,7 @@ const Layout = () => {
   const [currencyPerSecond, setCurrencyPerSecond] = useState(0);
   const [upgrades, setUpgrades] = useState(upgradesList);
   const [powerUps, setPowerUps] = useState(powerUpsList);
+  const intervalDivider = 4;
 
   useEffect(() => {
     document.title = documentTitle;
@@ -114,7 +115,7 @@ const Layout = () => {
   }, 5000);
 
   useInterval(() => {
-    setCurrency(currency + currencyPerSecond);
+    setCurrency(currency + currencyPerSecond / intervalDivider);
 
     const updatedUpgrades = [...upgrades];
     upgrades.forEach((upgrade, index) => {
@@ -126,14 +127,14 @@ const Layout = () => {
         setUpgrades(updatedUpgrades);
       }
     });
-  }, 1000);
+  }, 1000 / intervalDivider);
 
   const clickedUpgradeHandler = (index) => {
     const cost = upgrades[index].cost;
     if (currency >= cost) {
       const updatedUpgrades = [...upgrades];
       const increase = updatedUpgrades[index].increase;
-      
+
       updatedUpgrades[index] = {
         ...updatedUpgrades[index],
         count: updatedUpgrades[index].count + 1,
