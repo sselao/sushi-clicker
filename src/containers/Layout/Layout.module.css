@@ -1,5 +1,6 @@
 .Layout {
   display: flex;
+  flex-flow: row wrap;
   min-height: 100vh;
 }
 
@@ -12,6 +13,7 @@
 }
 
 .Right {
+  min-width: 500px;
   background: #f3f3f3;
   padding-left: 1rem;
   padding-right: 1rem;
