@@ -3,8 +3,11 @@
   cursor: pointer;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  user-select: none;
   animation: clicker-spin infinite 20s linear;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @keyframes clicker-spin {
