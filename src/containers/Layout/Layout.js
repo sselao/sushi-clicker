@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Clicker from '../../components/Clicker/Clicker';
 import PowerUpsList from '../../components/PowerUpsList/PowerUpsList';
-import Upgrades from '../Upgrades/Upgrades';
+import Buildings from '../Buildings/Buildings';
 import useInterval from '../../hooks/useInterval';
 import styles from './Layout.module.css';
 import { getInitialState } from '../../utilities/utilities';
@@ -14,7 +14,7 @@ const Layout = () => {
   const [currency, setCurrency] = useState(initialState.currency);
   const [currencyPerClick, setCurrencyPerClick] = useState(initialState.currencyPerClick);
   const [currencyPerSecond, setCurrencyPerSecond] = useState(initialState.currencyPerSecond);
-  const [upgrades, setUpgrades] = useState(initialState.upgrades);
+  const [buildings, setBuildings] = useState(initialState.buildings);
   const [powerUps, setPowerUps] = useState(initialState.powerUps);
   const intervalDivider = 4;
 
@@ -28,7 +28,7 @@ const Layout = () => {
       currency: currency,
       currencyPerClick: currencyPerClick,
       currencyPerSecond: currencyPerSecond,
-      upgrades: upgrades,
+      buildings: buildings,
       powerUps: powerUps,
     };
     localStorage.setItem('savedGame', JSON.stringify(saveData));
@@ -41,41 +41,41 @@ const Layout = () => {
   useInterval(() => {
     setCurrency(currency + currencyPerSecond / intervalDivider);
 
-    const updatedUpgrades = [...upgrades];
-    upgrades.forEach((upgrade, index) => {
-      if (upgrade.disabled && currency >= upgrade.minCurrency) {
-        updatedUpgrades[index] = {
-          ...updatedUpgrades[index],
+    const updatedBuildings = [...buildings];
+    buildings.forEach((building, index) => {
+      if (building.disabled && currency >= building.minCurrency) {
+        updatedBuildings[index] = {
+          ...updatedBuildings[index],
           disabled: false,
         };
-        setUpgrades(updatedUpgrades);
+        setBuildings(updatedBuildings);
       }
     });
   }, 1000 / intervalDivider);
 
-  const clickedUpgradeHandler = (index) => {
-    const cost = upgrades[index].cost;
+  const clickedBuildingHandler = (index) => {
+    const cost = buildings[index].cost;
     if (currency >= cost) {
-      const updatedUpgrades = [...upgrades];
-      const increase = updatedUpgrades[index].increase;
+      const updatedBuildings = [...buildings];
+      const increase = updatedBuildings[index].increase;
 
-      updatedUpgrades[index] = {
-        ...updatedUpgrades[index],
-        count: updatedUpgrades[index].count + 1,
+      updatedBuildings[index] = {
+        ...updatedBuildings[index],
+        count: updatedBuildings[index].count + 1,
         cost: Math.ceil(
-          updatedUpgrades[index].cost +
-            updatedUpgrades[index].initialCost * (1.07 ^ updatedUpgrades[index].count),
+          updatedBuildings[index].cost +
+            updatedBuildings[index].initialCost * (1.07 ^ updatedBuildings[index].count),
         ),
         increase: increase * 1.01,
       };
 
-      if (updatedUpgrades[index].type === 'click') {
+      if (updatedBuildings[index].type === 'click') {
         setCurrencyPerClick(currencyPerClick + increase);
-      } else if (updatedUpgrades[index].type === 'generator') {
+      } else if (updatedBuildings[index].type === 'generator') {
         setCurrencyPerSecond(currencyPerSecond + increase);
       }
 
-      setUpgrades(updatedUpgrades);
+      setBuildings(updatedBuildings);
       setCurrency(currency - cost);
     }
   };
@@ -114,7 +114,7 @@ const Layout = () => {
         <PowerUpsList powerUps={powerUps} clicked={clickedPowerUpHandler} />
       </div>
       <div className={styles.Right}>
-        <Upgrades upgrades={upgrades} currency={currency} upgraded={clickedUpgradeHandler} />
+        <Buildings buildings={buildings} currency={currency} purchased={clickedBuildingHandler} />
         <ResetButton />
       </div>
     </div>

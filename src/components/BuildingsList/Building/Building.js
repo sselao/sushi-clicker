@@ -1,10 +1,10 @@
 import React from 'react';
 import Currency from '../../UI/Currency/Currency';
 
-import styles from './Upgrade.module.css';
+import styles from './Building.module.css';
 
-const Upgrade = (props) => {
-  let className = [styles.Upgrade];
+const Building = (props) => {
+  let className = [styles.Building];
   if (props.disabled) {
     className.push(styles.Disabled);
   }
@@ -30,4 +30,4 @@ const Upgrade = (props) => {
   );
 };
 
-export default Upgrade;
+export default Building;

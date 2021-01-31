@@ -1,5 +1,5 @@
 export const getInitialState = () => {
-  const upgradesList = [
+  const buildingsList = [
     {
       name: 'Cursor',
       type: 'click',
@@ -8,6 +8,7 @@ export const getInitialState = () => {
       cost: 1,
       count: 0,
       increase: 1,
+      multiplier: 1,
     },
     {
       name: 'Apprentice',
@@ -17,6 +18,7 @@ export const getInitialState = () => {
       cost: 50,
       count: 0,
       increase: 1,
+      multiplier: 1,
     },
     {
       name: 'Itamae',
@@ -27,6 +29,7 @@ export const getInitialState = () => {
       count: 0,
       increase: 8,
       disabled: true,
+      multiplier: 1,
     },
     {
       name: 'Restaurant',
@@ -37,6 +40,7 @@ export const getInitialState = () => {
       count: 0,
       increase: 47,
       disabled: true,
+      multiplier: 1,
     },
     {
       name: 'Fisherman',
@@ -47,6 +51,7 @@ export const getInitialState = () => {
       count: 0,
       increase: 260,
       disabled: true,
+      multiplier: 1,
     },
     {
       name: 'Fish Farm',
@@ -57,36 +62,30 @@ export const getInitialState = () => {
       count: 0,
       increase: 1400,
       disabled: true,
+      multiplier: 1,
     },
   ];
 
   const powerUpsList = [
     {
-      name: '10x Click',
+      name: '2x Click',
       type: 'click',
       cost: 100,
-      multiplier: 10,
+      multiplier: 2,
       enabled: false,
     },
     {
-      name: '100x Click',
+      name: '2x Click',
       type: 'click',
-      cost: 100,
-      multiplier: 100,
+      cost: 500,
+      multiplier: 2,
       enabled: false,
     },
     {
-      name: '10x CPS',
-      type: 'generator',
-      cost: 200,
-      multiplier: 10,
-      enabled: false,
-    },
-    {
-      name: '100x CPS',
-      type: 'generator',
-      cost: 300,
-      multiplier: 100,
+      name: '2x Click',
+      type: 'click',
+      cost: 10000,
+      multiplier: 2,
       enabled: false,
     },
   ];
@@ -96,7 +95,7 @@ export const getInitialState = () => {
     currency: 1,
     currencyPerClick: 1,
     currencyPerSecond: 0,
-    upgrades: upgradesList,
+    buildings: buildingsList,
     powerUps: powerUpsList,
   };
 
