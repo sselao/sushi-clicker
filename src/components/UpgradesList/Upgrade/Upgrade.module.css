@@ -12,6 +12,10 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.Upgrade.Available {
+  background-color: rgba(196, 224, 196, 0.445);
+}
+
 .Upgrade.Disabled {
   cursor: not-allowed;
   background-color: rgb(197, 197, 197);

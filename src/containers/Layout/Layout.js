@@ -114,7 +114,7 @@ const Layout = () => {
         <PowerUpsList powerUps={powerUps} clicked={clickedPowerUpHandler} />
       </div>
       <div className={styles.Right}>
-        <Upgrades upgrades={upgrades} upgraded={clickedUpgradeHandler} />
+        <Upgrades upgrades={upgrades} currency={currency} upgraded={clickedUpgradeHandler} />
         <ResetButton />
       </div>
     </div>
