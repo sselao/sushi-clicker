@@ -9,6 +9,26 @@ export const getInitialState = () => {
       count: 0,
       increase: 1,
       multiplier: 1,
+      upgrades: [
+        {
+          name: 'Super Finger',
+          unlockCount: 1,
+          cost: 100,
+          multiplier: 2,
+        },
+        {
+          name: 'Mega Finger',
+          unlockCount: 1,
+          cost: 500,
+          multiplier: 2,
+        },
+        {
+          name: 'Ultra Finger',
+          unlockCost: 10,
+          cost: 10000,
+          multiplier: 2,
+        },
+      ],
     },
     {
       name: 'Apprentice',
@@ -95,6 +115,8 @@ export const getInitialState = () => {
     currency: 1,
     currencyPerClick: 1,
     currencyPerSecond: 0,
+    clickMultiplier: 1,
+    perSecondMultiplier: 1,
     buildings: buildingsList,
     powerUps: powerUpsList,
   };

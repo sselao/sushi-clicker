@@ -14,6 +14,8 @@ const Layout = () => {
   const [currency, setCurrency] = useState(initialState.currency);
   const [currencyPerClick, setCurrencyPerClick] = useState(initialState.currencyPerClick);
   const [currencyPerSecond, setCurrencyPerSecond] = useState(initialState.currencyPerSecond);
+  const [clickMultiplier, setClickMultiplier] = useState(initialState.clickMultiplier);
+  const [perSecondMultiplier, setPerSecondMultiplier] = useState(initialState.perSecondMultiplier);
   const [buildings, setBuildings] = useState(initialState.buildings);
   const [powerUps, setPowerUps] = useState(initialState.powerUps);
   const intervalDivider = 4;
@@ -28,6 +30,8 @@ const Layout = () => {
       currency: currency,
       currencyPerClick: currencyPerClick,
       currencyPerSecond: currencyPerSecond,
+      clickMultiplier: clickMultiplier,
+      perSecondMultiplier: perSecondMultiplier,
       buildings: buildings,
       powerUps: powerUps,
     };
@@ -39,7 +43,7 @@ const Layout = () => {
   }, 5000);
 
   useInterval(() => {
-    setCurrency(currency + currencyPerSecond / intervalDivider);
+    setCurrency(currency + (currencyPerSecond * perSecondMultiplier) / intervalDivider);
 
     const updatedBuildings = [...buildings];
     buildings.forEach((building, index) => {
@@ -52,6 +56,10 @@ const Layout = () => {
       }
     });
   }, 1000 / intervalDivider);
+
+  const clickHandler = () => {
+    setCurrency(currency + currencyPerClick * clickMultiplier)
+  };
 
   const clickedBuildingHandler = (index) => {
     const cost = buildings[index].cost;
@@ -66,7 +74,6 @@ const Layout = () => {
           updatedBuildings[index].cost +
             updatedBuildings[index].initialCost * (1.07 ^ updatedBuildings[index].count),
         ),
-        increase: increase * 1.01,
       };
 
       if (updatedBuildings[index].type === 'click') {
@@ -94,9 +101,9 @@ const Layout = () => {
         setCurrency(currency - cost);
 
         if (updatedPowerUps[index].type === 'click') {
-          setCurrencyPerClick(currencyPerClick * updatedPowerUps[index].multiplier);
+          setClickMultiplier(clickMultiplier * updatedPowerUps[index].multiplier);
         } else if (updatedPowerUps[index].type === 'generator') {
-          setCurrencyPerSecond(currencyPerSecond * updatedPowerUps[index].multiplier);
+          setPerSecondMultiplier(perSecondMultiplier * updatedPowerUps[index].multiplier);
         }
       }
     }
@@ -107,9 +114,9 @@ const Layout = () => {
       <div className={styles.Left}>
         <Clicker
           currency={currency}
-          currencyPerClick={currencyPerClick}
-          currencyPerSecond={currencyPerSecond}
-          clicked={() => setCurrency(currency + currencyPerClick)}
+          currencyPerClick={currencyPerClick * clickMultiplier}
+          currencyPerSecond={currencyPerSecond * perSecondMultiplier}
+          clicked={clickHandler}
         />
         <PowerUpsList powerUps={powerUps} clicked={clickedPowerUpHandler} />
       </div>
