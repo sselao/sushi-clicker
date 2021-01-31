@@ -4,111 +4,35 @@ import PowerUpsList from '../../components/PowerUpsList/PowerUpsList';
 import Upgrades from '../Upgrades/Upgrades';
 import useInterval from '../../hooks/useInterval';
 import styles from './Layout.module.css';
+import { getInitialState } from '../../utilities/utilities';
+import ResetButton from '../../components/ResetButton/ResetButton';
 
-const upgradesList = [
-  {
-    name: 'Cursor',
-    type: 'click',
-    minCurrency: 0,
-    initialCost: 1,
-    cost: 1,
-    count: 0,
-    increase: 1,
-  },
-  {
-    name: 'Apprentice',
-    type: 'generator',
-    minCurrency: 50,
-    initialCost: 50,
-    cost: 50,
-    count: 0,
-    increase: 1,
-  },
-  {
-    name: 'Itamae',
-    type: 'generator',
-    minCurrency: 1000,
-    initialCost: 1000,
-    cost: 1000,
-    count: 0,
-    increase: 8,
-    disabled: true,
-  },
-  {
-    name: 'Restaurant',
-    type: 'generator',
-    minCurrency: 12000,
-    initialCost: 12000,
-    cost: 12000,
-    count: 0,
-    increase: 47,
-    disabled: true,
-  },
-  {
-    name: 'Fisherman',
-    type: 'generator',
-    minCurrency: 120000,
-    initialCost: 120000,
-    cost: 120000,
-    count: 0,
-    increase: 260,
-    disabled: true,
-  },
-  {
-    name: 'Fish Farm',
-    type: 'generator',
-    minCurrency: 1400000,
-    initialCost: 1400000,
-    cost: 1400000,
-    count: 0,
-    increase: 1400,
-    disabled: true,
-  },
-];
-
-const powerUpsList = [
-  {
-    name: '10x Click',
-    type: 'click',
-    cost: 100,
-    multiplier: 10,
-    enabled: false,
-  },
-  {
-    name: '100x Click',
-    type: 'click',
-    cost: 100,
-    multiplier: 100,
-    enabled: false,
-  },
-  {
-    name: '10x CPS',
-    type: 'generator',
-    cost: 200,
-    multiplier: 10,
-    enabled: false,
-  },
-  {
-    name: '100x CPS',
-    type: 'generator',
-    cost: 300,
-    multiplier: 100,
-    enabled: false,
-  },
-];
+const initialState = getInitialState();
 
 const Layout = () => {
-  const [documentTitle, setDocumentTitle] = useState('Sushi Clicker');
-  const [currency, setCurrency] = useState(1);
-  const [currencyPerClick, setCurrencyPerClick] = useState(1);
-  const [currencyPerSecond, setCurrencyPerSecond] = useState(0);
-  const [upgrades, setUpgrades] = useState(upgradesList);
-  const [powerUps, setPowerUps] = useState(powerUpsList);
+  const [documentTitle, setDocumentTitle] = useState(initialState.title);
+  const [currency, setCurrency] = useState(initialState.currency);
+  const [currencyPerClick, setCurrencyPerClick] = useState(initialState.currencyPerClick);
+  const [currencyPerSecond, setCurrencyPerSecond] = useState(initialState.currencyPerSecond);
+  const [upgrades, setUpgrades] = useState(initialState.upgrades);
+  const [powerUps, setPowerUps] = useState(initialState.powerUps);
   const intervalDivider = 4;
 
   useEffect(() => {
     document.title = documentTitle;
   }, [documentTitle]);
+
+  // Auto-save
+  useInterval(() => {
+    const saveData = {
+      currency: currency,
+      currencyPerClick: currencyPerClick,
+      currencyPerSecond: currencyPerSecond,
+      upgrades: upgrades,
+      powerUps: powerUps,
+    };
+    localStorage.setItem('savedGame', JSON.stringify(saveData));
+  }, 3000);
 
   useInterval(() => {
     setDocumentTitle(`${currency.toFixed(0)} Nigiris - Sushi Clicker`);
@@ -191,6 +115,7 @@ const Layout = () => {
       </div>
       <div className={styles.Right}>
         <Upgrades upgrades={upgrades} upgraded={clickedUpgradeHandler} />
+        <ResetButton />
       </div>
     </div>
   );
