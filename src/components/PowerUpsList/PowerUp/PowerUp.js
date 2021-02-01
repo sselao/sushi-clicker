@@ -6,6 +6,8 @@ const PowerUp = (props) => {
   const className = [styles.PowerUp];
   if (props.enabled) {
     className.push(styles.Enabled);
+  } else if (props.currency >= props.cost) {
+    className.push(styles.Available);
   }
 
   return (

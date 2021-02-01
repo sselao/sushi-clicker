@@ -8,6 +8,10 @@
 }
 
 .Enabled {
-  background-color: rgb(115, 218, 115);
+  background-color: rgba(115, 218, 115);
   cursor: not-allowed;
+}
+
+.Available {
+  background-color: rgba(196, 224, 196, 0.445);
 }

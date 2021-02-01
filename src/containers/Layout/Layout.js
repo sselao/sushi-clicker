@@ -118,7 +118,7 @@ const Layout = () => {
           currencyPerSecond={currencyPerSecond * perSecondMultiplier}
           clicked={clickHandler}
         />
-        <PowerUpsList powerUps={powerUps} clicked={clickedPowerUpHandler} />
+        <PowerUpsList powerUps={powerUps} currency={currency} clicked={clickedPowerUpHandler} />
       </div>
       <div className={styles.Right}>
         <Buildings buildings={buildings} currency={currency} purchased={clickedBuildingHandler} />

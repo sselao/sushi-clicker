@@ -14,6 +14,7 @@ const PowerUpsList = (props) => (
           cost={pu.cost}
           multiplier={pu.multiplier}
           enabled={pu.enabled}
+          currency={props.currency}
           clicked={() => props.clicked(index)}
         />
       ))}
