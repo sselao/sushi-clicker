@@ -23,8 +23,8 @@ const Building = (props) => {
         <div className={styles.Count}>{props.count > 0 && props.count}</div>
       </div>
       <p className={styles.Description}>
-        Increase currency per {props.type === 'generator' ? 'second' : props.type} by{' '}
-        {props.increase.toFixed(2)}
+        Increase nigiris per {props.type === 'generator' ? 'second' : props.type} by{' '}
+        <Currency value={props.increase} decimals={0} />
       </p>
     </div>
   );
