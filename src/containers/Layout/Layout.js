@@ -58,28 +58,27 @@ const Layout = () => {
   }, 1000 / intervalDivider);
 
   const clickHandler = () => {
-    setCurrency(currency + currencyPerClick * clickMultiplier)
+    setCurrency(currency + currencyPerClick * clickMultiplier);
   };
 
   const clickedBuildingHandler = (index) => {
     const cost = buildings[index].cost;
     if (currency >= cost) {
       const updatedBuildings = [...buildings];
-      const increase = updatedBuildings[index].increase;
+      const updatedCount = updatedBuildings[index].count + 1;
 
       updatedBuildings[index] = {
         ...updatedBuildings[index],
-        count: updatedBuildings[index].count + 1,
-        cost: Math.ceil(
-          updatedBuildings[index].cost +
-            updatedBuildings[index].initialCost * (1.07 ^ updatedBuildings[index].count),
-        ),
+        count: updatedCount,
+        cost: Math.ceil(updatedBuildings[index].initialCost * (1.07 ^ updatedCount)),
       };
 
+      console.log(updatedBuildings[index].initialCost, 1.07, updatedCount);
+
       if (updatedBuildings[index].type === 'click') {
-        setCurrencyPerClick(currencyPerClick + increase);
+        setCurrencyPerClick(currencyPerClick + updatedBuildings[index].increase);
       } else if (updatedBuildings[index].type === 'generator') {
-        setCurrencyPerSecond(currencyPerSecond + increase);
+        setCurrencyPerSecond(currencyPerSecond + updatedBuildings[index].increase);
       }
 
       setBuildings(updatedBuildings);
