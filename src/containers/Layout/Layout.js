@@ -73,8 +73,6 @@ const Layout = () => {
         cost: Math.ceil(updatedBuildings[index].initialCost * (1.07 ^ updatedCount)),
       };
 
-      console.log(updatedBuildings[index].initialCost, 1.07, updatedCount);
-
       if (updatedBuildings[index].type === 'click') {
         setCurrencyPerClick(currencyPerClick + updatedBuildings[index].increase);
       } else if (updatedBuildings[index].type === 'generator') {
