@@ -19,6 +19,7 @@ const Layout = () => {
   const [buildings, setBuildings] = useState(initialState.buildings);
   const [powerUps, setPowerUps] = useState(initialState.powerUps);
   const intervalDivider = 4;
+  const buildingMultiplier = 1.07;
 
   useEffect(() => {
     document.title = documentTitle;
@@ -70,7 +71,7 @@ const Layout = () => {
       updatedBuildings[index] = {
         ...updatedBuildings[index],
         count: updatedCount,
-        cost: Math.ceil(updatedBuildings[index].initialCost * (1.07 ^ updatedCount)),
+        cost: updatedBuildings[index].initialCost * (buildingMultiplier ** updatedCount),
       };
 
       if (updatedBuildings[index].type === 'click') {
