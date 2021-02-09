@@ -4,7 +4,7 @@ import { building } from '../../utilities/utilities';
 type BuildingsProps = {
   buildings: building[];
   currency: number;
-  purchased: boolean;
+  purchased: Function;
 };
 
 const Buildings = ({ buildings, currency, purchased }: BuildingsProps) => (
