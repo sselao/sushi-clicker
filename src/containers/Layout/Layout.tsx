@@ -62,7 +62,7 @@ const Layout = () => {
     setCurrency(currency + currencyPerClick * clickMultiplier);
   };
 
-  const clickedBuildingHandler = (index) => {
+  const clickedBuildingHandler = (index: number) => {
     const cost = buildings[index].cost;
     if (currency >= cost) {
       const updatedBuildings = [...buildings];
@@ -71,7 +71,7 @@ const Layout = () => {
       updatedBuildings[index] = {
         ...updatedBuildings[index],
         count: updatedCount,
-        cost: updatedBuildings[index].initialCost * (buildingMultiplier ** updatedCount),
+        cost: updatedBuildings[index].initialCost * buildingMultiplier ** updatedCount,
       };
 
       if (updatedBuildings[index].type === 'click') {
@@ -85,7 +85,7 @@ const Layout = () => {
     }
   };
 
-  const clickedPowerUpHandler = (index) => {
+  const clickedPowerUpHandler = (index: number) => {
     if (!powerUps[index].enabled) {
       const cost = powerUps[index].cost;
       if (currency >= cost) {

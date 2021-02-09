@@ -1,5 +1,26 @@
+export type building = {
+  name: string;
+  type: 'click' | 'generator';
+  minCurrency: number;
+  initialCost: number;
+  cost: number;
+  count: number;
+  increase: number;
+  multiplier: number;
+  disabled: boolean;
+  upgrades?: upgrade[];
+};
+
+export type upgrade = {
+  name: string;
+  unlockCount?: number;
+  unlockCost?: number;
+  cost: number;
+  multiplier: number;
+};
+
 export const getInitialState = () => {
-  const buildingsList = [
+  const buildingsList: building[] = [
     {
       name: 'Cursor',
       type: 'click',
@@ -8,6 +29,7 @@ export const getInitialState = () => {
       cost: 1,
       count: 0,
       increase: 1,
+      disabled: false,
       multiplier: 1,
       upgrades: [
         {
@@ -38,6 +60,7 @@ export const getInitialState = () => {
       cost: 50,
       count: 0,
       increase: 1,
+      disabled: false,
       multiplier: 1,
     },
     {
