@@ -1,20 +1,19 @@
 type CurrencyProps = {
-  decimals: number;
   value: number;
-  currency: string;
+  decimals?: number;
+  currency?: string;
 };
 
-const Currency = ({ decimals, value, currency }: CurrencyProps) => {
-  const formattedValue = decimals >= 0 ? value.toFixed(decimals) : value.toFixed(2);
+const Currency = ({ value, decimals = 2, currency = 'nigiri' }: CurrencyProps) => {
+  const formattedValue = value.toFixed(decimals);
   const displayedValue = (+formattedValue).toLocaleString('en-US', { minimumFractionDigits: 0 });
-  let currencyName = currency ? currency : 'nigiri';
-  if (value > 1 && !currency) {
-    currencyName += 's';
+  if (value > 1) {
+    currency += 's';
   }
 
   return (
     <span>
-      {displayedValue} {currencyName}
+      {displayedValue} {currency}
     </span>
   );
 };
