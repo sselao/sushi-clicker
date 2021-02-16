@@ -1,14 +1,7 @@
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+<!--[![MIT License][license-shield]][license-url]-->
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -18,7 +11,7 @@
   <h3 align="center">Sushi Clicker</h3>
 
   <p align="center">
-    (In Development) A browser-based incremental game built with React & TypeScript.
+    *(In development)* A browser-based incremental game built with React & TypeScript.
     <br />
     <br />
     <a href="https://sushi.stephenselao.com/">View Demo</a>
