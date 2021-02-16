@@ -1,70 +1,159 @@
-# Getting Started with Create React App
+<!--
+*** To avoid retyping too much info. Do a search and replace for the following:
+*** github_username, repo_name, email, project_description
+-->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br />
+<p align="center">
+  <h3 align="center">Sushi Clicker</h3>
 
-### `npm test`
+  <p align="center">
+    (In Development) A browser-based incremental game built with React & TypeScript.
+    <br />
+    <br />
+    <a href="https://sushi.stephenselao.com/">View Demo</a>
+    ·
+    <a href="https://github.com/sselao/sushi-clicker/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/sselao/sushi-clicker/issues">Request Feature</a>
+  </p>
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Sushi Clicker is an [incremental game](https://en.wikipedia.org/wiki/Incremental_game) built with React.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Built With
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* [React](https://reactjs.org/)
+* [TypeScript](https://www.typescriptlang.org/)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- GETTING STARTED -->
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To get a local copy up and running follow these steps.
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you don't have npm installed, download npm from [the official official website](https://www.npmjs.com/get-npm).
 
-### Analyzing the Bundle Size
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Clone the repo
+   ```sh
+   git clone https://github.com/sselao/sushi-clicker.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Running it
+   ```sh
+   npm run start
+   ```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- CONTRIBUTING -->
+## Contributing
 
-### Advanced Configuration
+Any contributions you make are **greatly appreciated**!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/MyCoolFeature`)
+3. Commit your Changes (`git commit -m 'Add some cool feature'`)
+4. Push to the Branch (`git push origin feature/MyCoolFeature`)
+5. Open a Pull Request
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+<!-- LICENSE -->
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Stephen Selao - [@stephenselao](https://twitter.com/StephenSelao)
+
+Project Link: [https://github.com/sselao/sushi-clicker](https://github.com/sselao/sushi-clicker)
+
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* []()
+* []()
+* []()
+* [Icons made by Freepik](https://www.freepik.com)
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/sselao/sushi-clicker.svg?style=for-the-badge
+[contributors-url]: https://github.com/sselao/sushi-clicker/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/sselao/sushi-clicker.svg?style=for-the-badge
+[forks-url]: https://github.com/sselao/sushi-clicker/network/members
+[stars-shield]: https://img.shields.io/github/stars/sselao/sushi-clicker.svg?style=for-the-badge
+[stars-url]: https://github.com/sselao/sushi-clicker/stargazers
+[issues-shield]: https://img.shields.io/github/issues/sselao/sushi-clicker.svg?style=for-the-badge
+[issues-url]: https://github.com/sselao/sushi-clicker/issues
+[license-shield]: https://img.shields.io/github/license/sselao/sushi-clicker.svg?style=for-the-badge
+[license-url]: https://github.com/sselao/sushi-clicker/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/sselao/
