@@ -1,9 +1,9 @@
 <!-- PROJECT SHIELDS -->
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-<!--[![MIT License][license-shield]][license-url]-->
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+<!--[![MIT License][license-shield]][license-url]-->
 
 
 <br />
@@ -11,7 +11,7 @@
   <h3 align="center">Sushi Clicker</h3>
 
   <p align="center">
-    *(In development)* A browser-based incremental game built with React & TypeScript.
+    <em>(In development)</em> A browser-based incremental game built with React & TypeScript.
     <br />
     <br />
     <a href="https://sushi.stephenselao.com/">View Demo</a>
