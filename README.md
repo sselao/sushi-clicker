@@ -1,10 +1,3 @@
-<!--
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, email, project_description
--->
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -13,8 +6,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
@@ -135,10 +126,7 @@ Project Link: [https://github.com/sselao/sushi-clicker](https://github.com/ssela
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
-* [Icons made by Freepik](https://www.freepik.com)
+* [Icons made by Freepik](https://www.flaticon.com/free-icon/sushi_2346242?term=sushi&page=1&position=2&page=1&position=2&related_id=2346242)
 
 
 
