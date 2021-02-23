@@ -135,7 +135,7 @@ export const getInitialState = () => {
 
   let initialState = {
     title: 'Sushi Clicker',
-    currency: 1,
+    currency: 0,
     currencyPerClick: 1,
     currencyPerSecond: 0,
     clickMultiplier: 1,
