@@ -69,7 +69,7 @@ To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
-If you don't have npm installed, download npm from [the official official website](https://www.npmjs.com/get-npm).
+If you don't have npm installed, download npm from [the official website](https://www.npmjs.com/get-npm).
 
 ### Installation
 
