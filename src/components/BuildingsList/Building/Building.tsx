@@ -1,7 +1,7 @@
 import Currency from '../../UI/Currency/Currency';
 import styles from './Building.module.css';
 
-type BuildingProps = {
+export type BuildingProps = {
   name: string;
   cost: number;
   count: number;
